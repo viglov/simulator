@@ -256,7 +256,7 @@ class Stend {
         }
     }
 
-    private function busbar_couple( $q, $s = FALSE ) {
+    private function busbar_couple( $q, $s = true ) {
         switch ( $q ) {
             case 'e01q1':
             case 'e01q2':
@@ -280,23 +280,23 @@ class Stend {
                 break;
             case 'e08q1':
                 if ( $s ) {
-                    $r = 2;
-                } else {
                     $r = 1;
+                } else {
+                    $r = 2;
                 }
                 break;
             case 'e08q2':
                 if ( $s ) {
-                    $r = 3;
-                } else {
                     $r = 1;
+                } else {
+                    $r = 3;
                 }
                 break;
             case 'e08q3':
                 if ( $s ) {
-                    $r = 3;
-                } else {
                     $r = 2;
+                } else {
+                    $r = 3;
                 }
                 break;
             default :
@@ -306,7 +306,7 @@ class Stend {
         return $r;
     }
 
-    private function breaker_couple( $q ) {
+    private function breaker_couple( $q, $i = true ) {
         switch ( $q ) {
             case 'e01q1':
                 $r = 'e01q2';
@@ -327,7 +327,8 @@ class Stend {
                 $r = 'e05q1';
                 break;
             case 'e06q1':
-                $r = 'e06q2';
+                if ( $i ) $r = 'e06q2';
+                else $r = 'e06q10';
                 break;
             case 'e06q2':
                 $r = 'e06q1';
@@ -336,14 +337,20 @@ class Stend {
                 $r = 'e06q10';
                 break;
             case 'e06q10':
-                $r = 'e06q3';
+                if ( $i ) $r = 'e06q3';
+                else $r = 'e06q1';
                 break;
             case 'e08q1':
-                $r = 'e08q2';
+                if ( $i ) $r = 'e08q2';
+                else $r = 'e08q3';
                 break;
             case 'e08q2':
+                if ( $i ) $r = 'e08q1';
+                else $r = 'e08q3';
+                break;
             case 'e08q3':
-                $r = 'e08q1';
+                if ( $i ) $r = 'e08q1';
+                else $r = 'e08q2';
                 break;
             case 'e09q1':
                 $r = 'e09q3';
@@ -362,28 +369,6 @@ class Stend {
                 break;
             case 'e12q3':
                 $r = 'e12q1';
-                break;
-            default :
-                $r = FALSE;
-                break;
-        }
-        return $r;
-    }
-
-    private function breaker_couple_e06( $q ) {
-        switch ( $q ) {
-            case 'e06q1':
-                $r = 'e06q10';
-                break;
-            case 'e06q10':
-                $r = 'e06q1';
-                break;
-            case 'e08q1':
-            case 'e08q2':
-                $r = 'e08q3';
-                break;
-            case 'e08q3':
-                $r = 'e08q2';
                 break;
             default :
                 $r = FALSE;
@@ -553,86 +538,6 @@ class Stend {
                 return array( 'e12l01351' );
             case 'e12q52':
                 return array( 'e12l0952' );
-
-            default:
-                return false;
-        }
-    }
-
-    private function l_earthing_conection( $line ) {
-        switch ( $line ) {
-            case 'e01l789':
-                return 'e01q8';
-            case 'e01l0952':
-                return 'e01q52';
-            case 'e01l01251':
-                return 'e01q51';
-
-            case 'e02l29':
-                return 'e02q9';
-
-            case 'e03l789':
-                return 'e03q8';
-            case 'e03l0952':
-                return 'e03q52';
-            case 'e03l01251':
-                return 'e03q51';
-
-            case 'e04l19':
-                return 'e04q9';
-
-            case 'e05l789':
-                return 'e05q8';
-            case 'e05l0952':
-                return 'e05q52';
-            case 'e05l01251':
-                return 'e05q51';
-
-            case 'e06l01251':
-                return 'e06q51';
-            case 'e06l010352':
-                return 'e06q52';
-
-            case 'e07l79':
-                return 'e07q9';
-
-            case 'e08l012351':
-                return 'e08q51';
-            case 'e08l0952':
-                return 'e08q52';
-
-            case 'e09l789':
-                return 'e09q8';
-            case 'e09l0952':
-                return 'e09q52';
-            case 'e09l01351':
-                return 'e09q51';
-
-            case 'e10l39':
-                return 'e10q9';
-
-            case 'e11l789':
-                return 'e11q8';
-            case 'e11l0952':
-                return 'e11q52';
-            case 'e11l01351':
-                return 'e11q51';
-
-            case 'e12l789':
-                return 'e12q8';
-            case 'e12l0952':
-                return 'e12q52';
-            case 'e12l01351':
-                return 'e12q51';
-
-            case 'bb0':
-                return 'e07q75';
-            case 'bb1':
-                return 'e04q15';
-            case 'bb2':
-                return 'e02q25';
-            case 'bb3':
-                return 'e10q35';
 
             default:
                 return false;
@@ -936,7 +841,7 @@ class Stend {
         return false;
     }
 
-    private function interlock_6_7( $q, $s = false ) {
+    private function interlock_6_7( $q, $s = true ) {
 
         $shini = $this->busbar_couple( $q, $s );
         switch ( $shini ) {
@@ -1043,17 +948,15 @@ class Stend {
         }
     }
 
-    private function algorithm_e06q1( $q ) {
-        if ( $this->get_status( $this->breaker_couple( $q ) ) ) {
-            if ( $this->interlock_6_7( $q ) ) {
-                return FALSE;
-            }
+    private function algorithm_e06q1( $q, $i = true ) {
+        if ( $this->q_check_status( array( $this->breaker_couple( $q ) ) ) ) {
+            return FALSE;
         } else {
             if ( $this->off_line_status( $q ) ) {
                 return FALSE;
             }
         }
-        return !($this->interlock_1_4( $q ) || $this->q_check_status( array( $this->breaker_couple_e06( $q ) ) ));
+        return !($this->interlock_1_4( $q ) || $this->q_check_status( array( $this->breaker_couple( $q, $i ) ) ));
     }
 
     private function algorithm_e06q0( $q ) {
@@ -1075,9 +978,9 @@ class Stend {
 
                 return FALSE;
             }
-        } elseif ( $this->get_status( $this->breaker_couple_e06( $q ) ) ) {
+        } elseif ( $this->get_status( $this->breaker_couple( $q, false ) ) ) {
 
-            if ( $this->interlock_6_7( $q, true ) ) {
+            if ( $this->interlock_6_7( $q, false ) ) {
 
                 return FALSE;
             }
@@ -1233,42 +1136,6 @@ class Stend {
             }
         }
     }
-    /* Not used */
-
-    private function set_line_status1( $line, $q = false, $earthing = false ) {
-
-        if ( $q !== false && isset( $this->return['obj'][$line] ) && $this->return['obj'][$line]['status'] ) {
-            return;
-        } elseif ( !isset( $this->return['obj'][$line] ) ||
-                  !$this->return['obj'][$line]['status'] && isset( $this->return['obj'][$q] ) && $this->return['obj'][$q]['status'] ) {
-            if ( $earthing ) {
-                $this->return['obj'][$line]['status'] = 'e';
-                $this->return['obj'][$line]['position'] = 'e';
-            } else {
-                $this->return['obj'][$line]['status'] = $this->return['obj'][$q]['status'];
-            }
-        }
-
-        $line_conection = $this->l_conection( $line );
-
-        if ( $line_conection === false ) {
-            return;
-        }
-
-        if ( $q !== false ) {
-            $key = array_search( $q, $line_conection );
-            if ( $key !== false ) {
-                unset( $line_conection[$key] );
-                if ( empty( $line_conection ) ) {
-                    return;
-                }
-            }
-        }
-
-        foreach ( $line_conection as $line_conection_q ) {
-            $this->chek_q_status( $line_conection_q, $line );
-        }
-    }
 
     private function chek_q_status( $q, $line = false, $earthing = false ) {
 
@@ -1337,6 +1204,10 @@ class Stend {
                     break;
                 case 'e06q1':
                 case 'e06q10':
+                    $ret = $this->algorithm_e06q1( $q, false );
+                    break;
+                case 'e06q2':
+                case 'e06q3':
                     $ret = $this->algorithm_e06q1( $q );
                     break;
                 case 'e06q51':
@@ -1388,8 +1259,8 @@ class Stend {
                 case 'e03q2':
                 case 'e05q1':
                 case 'e05q2':
-                case 'e06q2':
-                case 'e06q3':
+//                case 'e06q2':
+//                case 'e06q3':
                 case 'e09q1':
                 case 'e09q3':
                 case 'e11q1':
