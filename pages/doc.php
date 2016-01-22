@@ -2,7 +2,7 @@
 require_once dirname( __FILE__ ) . '/../header.php';
 ?>
 <div class="content small"><br/>
-    <h2 id="version">Version: 1.1.0 - Jan 2016</h2>
+    <h2 id="version">Version: 1.1.1 - Jan 2016</h2>
     <ul>
         <li><a href="#introduction">Introduction</a>
         <li><a href="#interlocks">Interlocks</a>

@@ -2,7 +2,7 @@
 
 class Exersise {
 
-    private $ex1 = array(
+    private $ex4 = array(
          'start' => array(
               'e05q0'   => array( 'name' => 'e05q0', 'status' => 1, 'position' => 1 ),
               'e05q2'   => array( 'name' => 'e05q2', 'status' => 1, 'position' => 1 ),
@@ -151,19 +151,17 @@ class Exersise {
               array( 'e06q2', 0 ),
               array( 'e06q1', 1 ),
               array( 'e06q0', 1 ),
-              array( 'e08q1', 1 ),
-              array( 'e08q3', 0 ),
               array( 'e11q1', 1 ),
               array( 'e11q3', 0 ),
-              array( 'e06q0', 0 ),
-              array( 'e06q1', 0 ),
-              array( 'e06q3', 0 ),
               array( 'e05q1', 1 ),
               array( 'e05q9', 1 ),
               array( 'e05q0', 1 ),
+              array( 'e06q0', 0 ),
+              array( 'e06q1', 0 ),
+              array( 'e06q3', 0 ),
               array( 'e08q0', 0 ),
               array( 'e08q9', 0 ),
-              array( 'e08q1', 0 ),
+              array( 'e08q3', 0 ),
               array( 'e05q7', 0 ),
               array( 'e10q35', 1 )
          )
@@ -462,7 +460,7 @@ class Exersise {
               array( 'e05q52', 1 ),
          )
     );
-    private $ex4 = array(
+    private $ex1 = array(
          'start' => array(
               'e01l789' => array( 'name' => 'e01l789', 'status' => 1, 'position' => 1, 'source' => 1 )
          ),
