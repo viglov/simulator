@@ -42,7 +42,7 @@ if ( isset( $_GET['m'] ) ) {
                 if (result.error) {
                     jQuery.each(result.error, function(index, val) {
                         document.getElementById(data.name).classList.add('conflict');
-                        alertify.error('<?php _e( 'INTERLOCK' ); ?> - ' + val, 10);
+                        alertify.error('INTERLOCK - ' + val, 10);
                     });
                 } else if (result.obj) {
                     updateEl(result['obj']);
@@ -312,7 +312,7 @@ if ( isset( $_GET['m'] ) ) {
         $('#svg .q').click(function() {
             if (mode === 0 || mode === 'ex' || (mode === 1 && position == 0)) {
                 elem = this;
-                alertify.alert('<h2>' + $(elem).attr("id") + '</h2><div class="ajs-buttons"><p><a class="ajs-button ajs-on" href="javascript:showAlert(true);"><?php _e( 'ON' ); ?></a><a class="ajs-button ajs-off" href="javascript:showAlert(false);"><?php _e( 'OFF' ); ?></a></p></div>').set({
+                alertify.alert('<h2>' + $(elem).attr("id") + '</h2><div class="ajs-buttons"><p><a class="ajs-button ajs-on" href="javascript:showAlert(true);">ON</a><a class="ajs-button ajs-off" href="javascript:showAlert(false);">OFF</a></p></div>').set({
                     'frameless': true,
                     'movable': false,
                     'overflow': true,
@@ -368,18 +368,18 @@ if ( isset( $_GET['m'] ) ) {
             var txt, com;
             if (a === true) {
                 if (elem.classList.contains("off") || elem.classList.contains("conflict")) {
-                    txt = "<h2><?php _e( 'ON' ); ?></h2>";
+                    txt = "<h2>ON</h2>";
                     com = 1;
                 } else {
-                    alertify.error('<span class="head">' + $(elem).attr("id") + '</span> is <?php _e( 'ON' ); ?>', 10);
+                    alertify.error('<span class="head">' + $(elem).attr("id") + '</span> is ON', 10);
                     return;
                 }
             } else if (a === false) {
                 if (elem.classList.contains("on") || elem.classList.contains("conflict")) {
-                    txt = "<h2><?php _e( 'OFF' ); ?></h2>";
+                    txt = "<h2>OFF</h2>";
                     com = 0;
                 } else {
-                    alertify.error('<span class="head">' + $(elem).attr("id") + '</span> is <?php _e( 'OFF' ); ?>', 10);
+                    alertify.error('<span class="head">' + $(elem).attr("id") + '</span> is OFF', 10);
                     return;
                 }
             } else {
@@ -389,8 +389,8 @@ if ( isset( $_GET['m'] ) ) {
             alertify.confirm(txt).set({
                 'title': $(elem).attr("id"),
                 'labels': {
-                    ok: '<?php _e( 'OK' ); ?>',
-                    cancel: '<?php _e( 'CANCEL' ); ?>'
+                    ok: 'OK',
+                    cancel: 'CANCEL'
                 },
                 'onok': function(e) {
                     deb = 'showAlert';

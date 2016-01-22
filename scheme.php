@@ -2,10 +2,10 @@
 
 <div class="cont-reset">
     <ul class="nav nav-reset">
-        <li><?php _e( 'RESET' ); ?>
+        <li>RESET
             <ul class="nav sub-nav">
-                <li class="reset" rel="stend" data="stend"><?php _e( 'Stand' ); ?></li>
-                <li class="reset" rel="stend" data="conflict"><?php _e( 'Conflicts' ); ?></li>
+                <li class="reset" rel="stend" data="stend">Stand</li>
+                <li class="reset" rel="stend" data="conflict">Conflicts</li>
             </ul>
         </li>
     </ul>

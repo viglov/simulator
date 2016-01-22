@@ -1,5 +1,5 @@
 <?php ?>
-<div class="reset" rel="reset-log"><?php _e( 'CLEAR LOG' ); ?></div>
+<div class="reset" rel="reset-log">CLEAR LOG</div>
 <div class="log-table">
     <?php
     global $interact;
@@ -9,11 +9,11 @@
         echo '<table>';
 
         echo '<tr>';
-        echo '<th>' . __( 'ID' ) . '</th>';
-        echo '<th>' . __( 'Object' ) . '</th>';
-        echo '<th>' . __( 'Command' ) . '</th>';
-        echo '<th>' . __( 'Date' ) . '</th>';
-        echo '<th>' . __( 'Reason' ) . '</th>';
+        echo '<th>ID</th>';
+        echo '<th>Object</th>';
+        echo '<th>Command</th>';
+        echo '<th>Date</th>';
+        echo '<th>Reason</th>';
         echo '</tr>';
 
         foreach ( $log as $id => $values ) {

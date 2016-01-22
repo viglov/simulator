@@ -714,11 +714,11 @@ class Stend {
             $q_status = $this->get_status( $q );
             if ( $status && $q_status ) {
 
-                $this->return['error'][] = '<span class="q-text">' . $q . '</span> ' . __( 'is ON' );
+                $this->return['error'][] = '<span class="q-text">' . $q . '</span> is ON';
 
                 return true;
             } elseif ( !$status && !$q_status ) {
-                $this->return['error'][] = '<span class="q-text">' . $q . '</span> ' . __( 'is OFF' );
+                $this->return['error'][] = '<span class="q-text">' . $q . '</span> is OFF';
 
                 return true;
             }
@@ -738,7 +738,7 @@ class Stend {
                 }
             }
             if ( $index ) {
-                $this->return['error'][] = '<span class="q-text">' . $message . '</span> ' . __( 'are ON' );
+                $this->return['error'][] = '<span class="q-text">' . $message . '</span> are ON';
                 return true;
             }
         }

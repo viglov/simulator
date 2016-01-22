@@ -19,24 +19,24 @@ global $locale_lang;
         <div class="navigation-area">
             <div class="collapse navbar-collapse">
                 <ul class="nav nav-pages">
-                    <li><?php _e( 'MODE' ); ?>
+                    <li>MODE
                         <ul class="nav sub-nav">
-                            <li data="0"><a href="/"><?php _e( 'Virtual' ); ?></a></li>
-                            <li data="1"><a href="?m=r"><?php _e( 'Real' ); ?></a></li>
+                            <li data="0"><a href="/">Virtual</a></li>
+                            <li data="1"><a href="?m=r">Real</a></li>
                         </ul>
                     </li>
-                    <li><?php _e( 'EXERCISES' ); ?>
+                    <li>EXERCISES
                         <ul class="nav sub-nav">
-                            <li><a href="?p=ex&m=1"><?php _e( 'Exercise' ); ?> 1</a></li>
-                            <li><a href="?p=ex&m=2"><?php _e( 'Exercise' ); ?> 2</a></li>
-                            <li><a href="?p=ex&m=3"><?php _e( 'Exercise' ); ?> 3</a></li>
-                            <li><a href="?p=ex&m=4"><?php _e( 'Exercise' ); ?> 4</a></li>
+                            <li><a href="?p=ex&m=1">Exercise 1</a></li>
+                            <li><a href="?p=ex&m=2">Exercise 2</a></li>
+                            <li><a href="?p=ex&m=3">Exercise 3</a></li>
+                            <li><a href="?p=ex&m=4">Exercise 4</a></li>
                         </ul>
                     </li>
-                    <li><?php _e( 'ABOUT' ); ?>
+                    <li>ABOUT
                         <ul class="nav sub-nav">
-                            <li><a href="?p=doc"><?php _e( 'About the System' ); ?></a></li>
-                            <li><a href="?p=cr"><?php _e( 'Credits' ); ?></a></li>
+                            <li><a href="?p=doc">About the System</a></li>
+                            <li><a href="?p=cr">Credits</a></li>
                         </ul>
                     </li>
                 </ul>
